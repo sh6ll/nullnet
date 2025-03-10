@@ -1491,6 +1491,7 @@ def hide_console_window():
 
 # Main execution block
 if __name__ == "__main__":
+    UTF8_encode()
     # Hide console window on Windows
     hide_console_window()
     
