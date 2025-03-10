@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import io
 import json
 import os
 import requests
@@ -13,6 +14,9 @@ import subprocess
 import sys
 import threading  # Still needed for both modes
 
+if os.name == 'nt':
+    import codecs
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
 # Global variables to hold GUI modules when imported
 tk = None
 ttk = None
