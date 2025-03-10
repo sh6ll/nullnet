@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import io
 import json
 import os
 import requests
@@ -1470,14 +1469,6 @@ def define_gui_classes():
             with open(filename, "w", encoding="utf-8") as outfile:
                 json.dump(breach_data, outfile, indent=2)
 
-def UTF8_encode():
-    if SYSTEM == "Windows":
-        try:
-            import codecs
-            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
-        except:
-            pass
-
 
 # Function to hide console window on Windows
 def hide_console_window():
@@ -1491,7 +1482,6 @@ def hide_console_window():
 
 # Main execution block
 if __name__ == "__main__":
-    UTF8_encode()
     # Hide console window on Windows
     hide_console_window()
     
