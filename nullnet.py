@@ -14,9 +14,6 @@ import subprocess
 import sys
 import threading  # Still needed for both modes
 
-if os.name == 'nt':
-    import codecs
-    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
 # Global variables to hold GUI modules when imported
 tk = None
 ttk = None
@@ -1472,6 +1469,14 @@ def define_gui_classes():
         def save_breach_data_to_json(self, breach_data, filename):
             with open(filename, "w", encoding="utf-8") as outfile:
                 json.dump(breach_data, outfile, indent=2)
+
+def UTF8_encode():
+    if SYSTEM == "Windows":
+        try:
+            import codecs
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
+        except:
+            pass
 
 
 # Function to hide console window on Windows
